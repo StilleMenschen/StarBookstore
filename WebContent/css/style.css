@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+body {
+	font-family: "Microsoft YaHei";
+	text-align: center;
+	background-image: URL(../images/bg.jpg);
+	background-repeat: no-repeat;
+}
+
+.topheader {
+	font-weight: bold;
+}
+
+.form-inner {
+	width: 768px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.form-inner select {
+	margin-top: 5px;
+	padding: 3px 6px;
+	width: 100px;
+	height: 24px;
+	font-size: 14px;
+	line-height: 24px;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+}
+
+.noresult {
+	padding-top: 24px;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 256px;
+}
+
+.mover {
+	height: 512px;
+	overflow-y: scroll;
+}
+
+th, td {
+	text-align: center;
+}
+
+.table > tbody > tr > td {
+	vertical-align: middle;
+}

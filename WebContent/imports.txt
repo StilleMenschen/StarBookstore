@@ -1,0 +1,9 @@
+<%@ page contentType="text/html;charset=GB2312" %>
+<%-- style --%>
+<link rel="stylesheet" href="css/bootstrap-3.3.7-theme.min.css">
+<link rel="stylesheet" href="css/bootstrap-3.3.7.min.css">
+<link rel="stylesheet" href="css/style.css">
+<%-- script --%>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/bootstrap-3.3.7.min.js"></script>
+<script src="js/script.js"></script>

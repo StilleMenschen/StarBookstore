@@ -1,0 +1,17 @@
+<%@ page contentType="text/html;charset=GB2312" %>
+<div class="page-header">
+<h1 class="topheader">星星书屋</h1>
+</div><div class="container">
+<ul id="mnav" class="nav nav-tabs">
+<li><a href="LGregister.jsp">用户注册</a></li>
+<li><a href="LGlogin.jsp">用户登录</a></li>
+<li><a href="LGqueryOrderForm.jsp">查看订单</a></li>
+<li><a href="LGlookPurchase.jsp">查看购物车</a></li>
+<li><a href="LGlookBook.jsp">浏览图书</a></li>
+<li><a href="LGfindBook.jsp">图书查询</a></li>
+<li><a href="LGmodifyRegister.jsp ">修改注册信息</a></li>
+<li><a href="LGmodifyPassword.jsp">修改密码</a></li>
+<li><a href="LGexitLogin.jsp">退出登录</a></li>
+<li><a href="LGindex.jsp">返回主页</a></li>
+<li><a href="LGabout.jsp">关于</a></li>
+</ul></div>
