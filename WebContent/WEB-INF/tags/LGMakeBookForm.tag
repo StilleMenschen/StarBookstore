@@ -42,9 +42,9 @@
 		rs = ps.executeQuery(sqlStatement);
 		strMess.append("<table class=\"table\">");
 		strMess.append("<tr class=\"info\">");
-		strMess.append("<th>è®¢å•å·</th>");
-		strMess.append("<th>è®¢å•å†…å®¹</th>");
-		strMess.append("<th>æ€»ä»·æ ¼</th>");
+		strMess.append("<th>¶©µ¥ºÅ</th>");
+		strMess.append("<th>¶©µ¥ÄÚÈİ</th>");
+		strMess.append("<th>×Ü¼Û¸ñ</th>");
 		strMess.append("</tr>");
 		while (rs.next()) {
 			String idNumber = rs.getString("orderNumber");
@@ -53,7 +53,7 @@
 			strMess.append("<tr class=\"info\">");
 			strMess.append("<td>" + idNumber + "</td>");
 			strMess.append("<td>" + orderMess + "</td>");
-			strMess.append("<td>ï¿¥" + priceSum + "</td>");
+			strMess.append("<td>£¤" + priceSum + "</td>");
 			strMess.append("</tr>");
 		}
 		strMess.append("</table>");

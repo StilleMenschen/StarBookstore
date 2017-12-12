@@ -4,7 +4,10 @@
 <%@ attribute name="findContent" required="true"%>
 <%@ attribute name="condition" required="true"%>
 <%@ attribute name="findMethod" required="true"%>
-<%@ variable name-given="giveResult" variable-class="java.lang.StringBuffer" scope="AT_END"%>
+<%@ variable name-given="giveResult"
+	variable-class="java.lang.StringBuffer" scope="AT_END"%>
+<%@ variable name-given="pageSize" variable-class="java.lang.String"
+	scope="AT_END"%>
 <%
 	//byte b[] = findContent.getBytes("iso-8859-1");
 	//findContent = new String(b);
@@ -36,8 +39,7 @@
 			System.out.println("LGFindBook.tag:" + sql);
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			queryResult.append("<div class=\"container\">");
-			queryResult.append("<table class=\"table\">");
+			queryResult.append("<table class=\"table table-hover\">");
 			queryResult.append("<thead><tr>");
 			queryResult.append("<th>封面</th>");
 			queryResult.append("<th>ISBN</th>");
@@ -45,11 +47,19 @@
 			queryResult.append("<th>作者</th>");
 			queryResult.append("<th>价格</th>");
 			queryResult.append("<th>出版社</th>");
-			queryResult.append("<th>操作</th></tr></thead></table></div>");
-			queryResult.append("<div class=\"container mover\">");
-			queryResult.append("<table class=\"table table-hover\"><tbody>");
+			queryResult.append("<th>操作</th></tr></thead>");
 			int clos = 6;
+			int rows = 1;
+			int count = 0;
+			queryResult.append("<tbody id=\"result-page-" + rows + "\">");
 			while (rs.next()) {
+				if (count == 3) {
+					count = 0;
+					rows++;
+					queryResult.append("</tbody>");
+					queryResult.append("<tbody id=\"result-page-" + rows + "\" style=\"display:none;\">");
+				}
+				count++;
 				queryResult.append("<tr>");
 				String bookISBN = "";
 				for (int k = 1; k <= clos; k++) {
@@ -73,11 +83,15 @@
 				String buy = "<a href=\"LGlookPurchase.jsp?buyISBN=" + bookISBN + "\">购买</a>";
 				queryResult.append("<td>" + buy + "</td>");
 			}
-			queryResult.append("</tbody></table></div>");
+			queryResult.append("</tbody></table>");
+			String pageSizeString = "<input type=\"hidden\" value=\"" + rows + "\" id=\"pageS\"/>";
 			jspContext.setAttribute("giveResult", queryResult);
+			jspContext.setAttribute("pageSize", pageSizeString);
+			ps.close();
 			con.close();
 		} catch (SQLException exp) {
 			jspContext.setAttribute("giveResult", new StringBuffer("<p class=\"text-danger\">请给出查询条件</p>"));
+			jspContext.setAttribute("pageSize", "<input type=\"hidden\" value=\"0\" id=\"pageS\"/>");
 			exp.printStackTrace();
 		}
 	}

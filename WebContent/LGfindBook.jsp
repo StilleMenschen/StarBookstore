@@ -45,8 +45,14 @@ if(null!=request.getParameter("findContent")){
 %>
 <findBook:LGFindBook findContent="<%=findContent%>"
  condition="<%=condition%>" findMethod="<%=findMethod%>"/>
-<%=giveResult%>
+<%=pageSize %>
+<div class="container"><%=giveResult%>
+<button id="btn_prev" class="btn btn-info">上一页</button>
+<span id="currentPage"></span>
+<button id="btn_next" class="btn btn-info">下一页</button>
+</div>
+<script src="js/findbook.js" charset="UTF-8"></script>
 <%}else{ %>
-<p class="text-warning noresult">暂无查询结果</p>
+<h2 class="text-warning noresult">暂无查询结果</h2>
 <%}%>
 </body></html>
